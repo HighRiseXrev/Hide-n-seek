@@ -1,0 +1,18 @@
+fileFormatVersion: 2
+guid: bf22eabc96ef9e34daf168d041eb4f55
+ScriptedImporter:
+  internalIDToNameTable: []
+  externalObjects: {}
+  serializedVersion: 2
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+  script: {fileID: 1355218169, guid: 6f9c394430e33933bbac989b158f2ac4, type: 3}
+  _scriptType: 2
+  _defaultReferences:
+  - Name: GameManagerObject
+    Value: {fileID: 3406363625587894378, guid: ccd0b88a467fab5498e6bfb44808ce59, type: 3}
+  - Name: gmPrefab
+    Value: {fileID: 3406363625587894378, guid: ccd0b88a467fab5498e6bfb44808ce59, type: 3}
+  - Name: gameManagerPrefab
+    Value: {fileID: 3406363625587894378, guid: ccd0b88a467fab5498e6bfb44808ce59, type: 3}
