@@ -9,7 +9,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 5984937745365639684}
-  - component: {fileID: -4927154124330653751}
+  - component: {fileID: -2646745348856140688}
   m_Layer: 0
   m_Name: GameBaseSpawner
   m_TagString: Untagged
@@ -32,7 +32,7 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &-4927154124330653751
+--- !u!114 &-2646745348856140688
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -41,22 +41,41 @@ MonoBehaviour:
   m_GameObject: {fileID: 8816158308424830858}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: -173044334, guid: 5e99434f214126023bd8db55a8296c39, type: 3}
+  m_Script: {fileID: -199087588, guid: 991a4badf00d28384a32b2c089782f03, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   _networkId: 0
-  _script: {fileID: -974389366465450183, guid: 88de721fb90843944b4f498ca102c1b3, type: 3}
+  _script: {fileID: -974389366465450183, guid: a347856abc92520488c4a062bb81b9d5, type: 3}
   _properties:
-  - Property: {fileID: -2695117827799385001, guid: 88de721fb90843944b4f498ca102c1b3,
+  - Property: {fileID: -5311285141880255619, guid: a347856abc92520488c4a062bb81b9d5,
       type: 3}
     Value:
-      rid: 6311834979854712845
+      rid: 6311835035943305515
+  - Property: {fileID: -8145105209976752609, guid: a347856abc92520488c4a062bb81b9d5,
+      type: 3}
+    Value:
+      rid: 6311835035943305516
+  _uiOutput: 0
+  _uiOutputSettings:
+    rid: -2
+  m_gameManagerPrefab: {fileID: 196081296536698096, guid: ccd0b88a467fab5498e6bfb44808ce59,
+    type: 3}
+  m_gameModePrefab: {fileID: 6781802384669285659, guid: 63cbf40e078e04046b421040f1a56f2b,
+    type: 3}
   references:
     version: 2
     RefIds:
-    - rid: 6311834979854712845
+    - rid: -2
+      type: {class: , ns: , asm: }
+    - rid: 6311835035943305515
       type: {class: GameObjectGlue/GameObjectLuaPropertyValue, ns: Highrise.Lua.Glue,
         asm: com.pz.highrise.lua.glue}
       data:
         _value: {fileID: 196081296536698096, guid: ccd0b88a467fab5498e6bfb44808ce59,
+          type: 3}
+    - rid: 6311835035943305516
+      type: {class: GameObjectGlue/GameObjectLuaPropertyValue, ns: Highrise.Lua.Glue,
+        asm: com.pz.highrise.lua.glue}
+      data:
+        _value: {fileID: 6781802384669285659, guid: 63cbf40e078e04046b421040f1a56f2b,
           type: 3}

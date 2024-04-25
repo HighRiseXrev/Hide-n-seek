@@ -18,6 +18,8 @@ local maxSeekerCount : number = 2
 
 local currentSeekerCount : number = 0
 
+local prefabToSpawn : GameObject
+
 players = {}
 
 playerTypeCount = {}
@@ -39,7 +41,7 @@ end
 
 function self:ServerStart()
     print("Server start Game Mode")
-    
+    SetGameMangerObjectReference()
     scene.PlayerJoined:Connect(function(scene, player)
         print(player.name .. " joined the scene")
 
@@ -62,6 +64,22 @@ function self:ServerStart()
         playersJoinCount = playersJoinCount - 1
     end)
 end
+
+function SetGameMangerObjectReference()
+    local gameManagers = GameObject.FindGameObjectsWithTag("GameManager")
+       if (#gameManagers > 0) then
+            print("found gamemanagers")
+            print("gamemanager at 1 is " .. gameManagers[1].name) --Array index starts at 1 not 0 -- damn
+            local gM : GameObject = nil;
+            gM = gameManagers[1]
+            local gameManager = gameManagers[1]
+            print("gamemanager name is " .. gameManager.name)
+            print("type is " .. type(gameManager))
+            print("type of gm is " .. type(gM))
+            prefabToSpawn = gameManager.gameObject:GetComponent("GameManager").HiderPlayerPrefab 
+            print("prefab to spawn name is " .. prefabToSpawn.name)
+       end
+    end
 
 function SetPlayerType()
     print("setting player type")
@@ -110,13 +128,17 @@ function SpawnPlayers()
         spawnPos = Vector3.new(0,0,0)
         spawnRot = spawnPos;
        -- end
-        local prefabToSpawn = player.gameManager.gameObject:GetComponent("GameManager").HiderPlayerPrefab
-       -- local prefabToSpawn = gameManagerPrefab.HiderPlayerPrefab
-        player.character = Object.Instantiate(prefabToSpawn, spawnPos, spawnRot);
+       local gameManagers = GameObject.FindGameObjectsWithTag("GameManager")
+       if (#gameManagers > 0) then
+            local prefabToSpawn = gameManagers[0]:GetComponent("GameManager").HiderPlayerPrefab
+        -- local prefabToSpawn = gameManagerPrefab.HiderPlayerPrefab
+            player.character = Object.Instantiate(prefabToSpawn, spawnPos, spawnRot);
+       end
     end
 end
 
 function self:ServerUpdate()
+
     if not StartGame or IsGameFinished then
         return
     end

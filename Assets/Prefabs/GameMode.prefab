@@ -9,10 +9,10 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 5661695506119521333}
-  - component: {fileID: 7848337687280208328}
+  - component: {fileID: 3236308950588551005}
   m_Layer: 0
   m_Name: GameMode
-  m_TagString: Untagged
+  m_TagString: GameMode
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -32,7 +32,7 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &7848337687280208328
+--- !u!114 &3236308950588551005
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -41,37 +41,35 @@ MonoBehaviour:
   m_GameObject: {fileID: 6781802384669285659}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: -173044334, guid: 5e99434f214126023bd8db55a8296c39, type: 3}
+  m_Script: {fileID: 1666966478, guid: 991a4badf00d28384a32b2c089782f03, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   _networkId: 0
   _script: {fileID: -974389366465450183, guid: bf22eabc96ef9e34daf168d041eb4f55, type: 3}
   _properties:
-  - Property: {fileID: -5311285141880255619, guid: bf22eabc96ef9e34daf168d041eb4f55,
-      type: 3}
-    Value:
-      rid: 6311834977911701505
   - Property: {fileID: -6528681175605348500, guid: bf22eabc96ef9e34daf168d041eb4f55,
       type: 3}
     Value:
-      rid: 6311834977911701506
+      rid: 6311835035428978714
   - Property: {fileID: 4719805453112760076, guid: bf22eabc96ef9e34daf168d041eb4f55,
       type: 3}
     Value:
-      rid: 6311834977911701507
+      rid: 6311835035428978715
+  _uiOutput: 0
+  _uiOutputSettings:
+    rid: -2
+  m_totalGameTime: 5
+  m_totalNumberPlayersToStart: 2
   references:
     version: 2
     RefIds:
-    - rid: 6311834977911701505
-      type: {class: GameObjectGlue/GameObjectLuaPropertyValue, ns: Highrise.Lua.Glue,
-        asm: com.pz.highrise.lua.glue}
-      data:
-        _value: {fileID: 0}
-    - rid: 6311834977911701506
+    - rid: -2
+      type: {class: , ns: , asm: }
+    - rid: 6311835035428978714
       type: {class: NumberLuaPropertyValue, ns: Highrise.Lua, asm: com.pz.highrise.lua}
       data:
         _value: 5
-    - rid: 6311834977911701507
+    - rid: 6311835035428978715
       type: {class: NumberLuaPropertyValue, ns: Highrise.Lua, asm: com.pz.highrise.lua}
       data:
-        _value: 5
+        _value: 2
