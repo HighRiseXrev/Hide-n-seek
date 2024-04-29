@@ -16,7 +16,7 @@ MonoBehaviour:
   _publishedId: 
   _worldPrefab: {fileID: 9171886453793455768, guid: 569fdf5ca373dfb43bac53ec5237b9a6,
     type: 3}
-  _scenePrefab: {fileID: 8457444051872364791, guid: 4ea8fc71d0d33aa4794e860bd8a9318a,
+  _scenePrefab: {fileID: 8816158308424830858, guid: 65e256b9e92de4c4b944544d3eb9e4c6,
     type: 3}
   _uiFactory: {fileID: 0}
   _hideVirtualPlayerScenes: 1
