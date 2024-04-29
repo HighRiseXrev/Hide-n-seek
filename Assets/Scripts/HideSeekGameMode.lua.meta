@@ -9,6 +9,7 @@ ScriptedImporter:
   assetBundleVariant: 
   script: {fileID: 1355218169, guid: 6f9c394430e33933bbac989b158f2ac4, type: 3}
   _scriptType: 4
+  _scriptTypeOverridden: 0
   _defaultReferences:
   - Name: GameManagerObject
     Value: {fileID: 3406363625587894378, guid: ccd0b88a467fab5498e6bfb44808ce59, type: 3}
@@ -16,3 +17,7 @@ ScriptedImporter:
     Value: {fileID: 3406363625587894378, guid: ccd0b88a467fab5498e6bfb44808ce59, type: 3}
   - Name: gameManagerPrefab
     Value: {fileID: 3406363625587894378, guid: ccd0b88a467fab5498e6bfb44808ce59, type: 3}
+  - Name: HiderPlayerPrefab
+    Value: {fileID: 9195796020155819828, guid: 27a0405eda28aab49a813bc1697666a8, type: 3}
+  - Name: SeekerPlayerPrefab
+    Value: {fileID: 3245805027836430772, guid: ed5091af23c095d4f8459e2eb28f20c6, type: 3}

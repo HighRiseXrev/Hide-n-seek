@@ -9,16 +9,16 @@ function self:ServerStart()
     
     scene.PlayerJoined:Connect(function(scene, player)
         print(player.name .. " joined the scene in base spawner")
-        --print("spawning manager and mode")
+        print("spawning manager and mode")
         local spawnPos : Vector3 = Vector3.new(0,0,0)
         local spawnRot : Vector3 = Vector3.new(0,0,0)
         --spawnPos = Vector3.new(0,0,0)
         --spawnRot = spawnPos;
-        print("game manager is " .. gameManagerPrefab.name) -- it says concetanating nil 
-        print(gameModePrefab.name)
-        --Object.Instantiate(gameManagerPrefab)--, spawnPos, spawnRot); -- its crashing
-        --Object.Instantiate(gameModePrefab)--, spawnPos, spawnRot);  -- crash
-      --  print("spawnedddddddddd")
+        --print("game manager is " .. gameManagerPrefab.name) -- it says concetanating nil 
+        --print(gameModePrefab.name)
+        Object.Instantiate(gameManagerPrefab, spawnPos, spawnRot); -- its crashing
+        Object.Instantiate(gameModePrefab, spawnPos, spawnRot);  -- crash
+        print("spawnedddddddddd")
     end)
 
     scene.PlayerLeft:Connect(function(scene, player)

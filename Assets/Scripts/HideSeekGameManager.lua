@@ -1,8 +1,8 @@
---!SerializeField
+--[[ --!SerializeField
 local HiderPlayerPrefab : GameObject = nil
 
 --!SerializeField
-local SeekerPlayerPrefab : GameObject = nil
+local SeekerPlayerPrefab : GameObject = nil ]]
 
 local totalGameCurrency : number = 0 
 

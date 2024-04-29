@@ -1,4 +1,10 @@
 --!SerializeField
+local HiderPlayerPrefab : GameObject = nil
+
+--!SerializeField
+local SeekerPlayerPrefab : GameObject = nil
+
+--!SerializeField
 local totalGameTime : number = 5
 
 local totalGameTimeSeconds = totalGameTime * 60
@@ -18,8 +24,6 @@ local maxSeekerCount : number = 2
 
 local currentSeekerCount : number = 0
 
-local prefabToSpawn : GameObject
-
 players = {}
 
 playerTypeCount = {}
@@ -30,6 +34,7 @@ function self:ServerAwake()
     print("Server Awake Game Mode")
     totalNumberPlayersToStart = tonumber(totalNumberPlayersToStart)
 
+    
     server.PlayerConnected:Connect(function(player)
         print(player.name .. " connected to the server")
     end)
@@ -41,7 +46,7 @@ end
 
 function self:ServerStart()
     print("Server start Game Mode")
-    SetGameMangerObjectReference()
+   -- SetGameMangerObjectReference()
     scene.PlayerJoined:Connect(function(scene, player)
         print(player.name .. " joined the scene")
 
@@ -75,8 +80,8 @@ function SetGameMangerObjectReference()
             local gameManager = gameManagers[1]
             print("gamemanager name is " .. gameManager.name)
             print("type is " .. type(gameManager))
-            print("type of gm is " .. type(gM))
-            prefabToSpawn = gameManager.gameObject:GetComponent("GameManager").HiderPlayerPrefab 
+            print("type of gm is " .. type(gM)) 
+            prefabToSpawn = gameManager.gameObject:GetComponent("GameManager").HiderPlayerPrefab -- getcomponent doesnt work on server for now
             print("prefab to spawn name is " .. prefabToSpawn.name)
        end
     end
@@ -115,24 +120,40 @@ end
 
 function SpawnPlayers()
     print("Spawning Players")
+
+    local currentCounHider : number = 1
+    local currentCounSeeker : number = 1
+    local hiderSpawns = GameObject.FindGameObjectsWithTag("HiderSpawnPoint")
+    local SeekerSpawns = GameObject.FindGameObjectsWithTag("SeekerSpawnPoint")
+    local spawnTransform : Transform = nil;
+    local spawnPos : Vector3 = nil;
+    local spawnRot : Vector3 = nil;
+
     for player,playerinfo in pairs(players) do
         print(player.name .. ", player type: " .. playerinfo.playerType)
-        local spawnPos : Vector3 = nil;
-        local spawnRot : Vector3 = nil;
-        --local spawns = GameObject.FindGameObjectsWithTag("AvatarSpawn")
-        --if (#spawns > 0) then
-       --     spawnTransform = spawns[math.random(1, #spawns)].transform
-         --   spawnPos = spawnTransform.position
-         --   spawnRot = spawnTransform.eulerAngles
-       -- else
-        spawnPos = Vector3.new(0,0,0)
-        spawnRot = spawnPos;
-       -- end
-       local gameManagers = GameObject.FindGameObjectsWithTag("GameManager")
-       if (#gameManagers > 0) then
-            local prefabToSpawn = gameManagers[0]:GetComponent("GameManager").HiderPlayerPrefab
-        -- local prefabToSpawn = gameManagerPrefab.HiderPlayerPrefab
-            player.character = Object.Instantiate(prefabToSpawn, spawnPos, spawnRot);
+       
+        if(playerinfo.playerType <= 0) then
+            if (#hiderSpawns > 0) then
+                spawnTransform = hiderSpawns[currentCounHider].transform
+                spawnPos = spawnTransform.position
+                spawnRot = spawnTransform.eulerAngles
+                currentCounHider = currentCounHider + 1
+            else
+                spawnPos = Vector3.new(0,0,0)
+                spawnRot = spawnPos;
+            end
+            player.character = Object.Instantiate(HiderPlayerPrefab, spawnPos, spawnRot);
+        else
+            if (#SeekerSpawns > 0) then
+                spawnTransform = SeekerSpawns[currentCounSeeker].transform
+                spawnPos = spawnTransform.position
+                spawnRot = spawnTransform.eulerAngles
+                currentCounSeeker = currentCounSeeker + 1
+            else
+                spawnPos = Vector3.new(0,0,0)
+                spawnRot = spawnPos;
+            end
+            player.character = Object.Instantiate(SeekerPlayerPrefab, spawnPos, spawnRot);
        end
     end
 end
@@ -143,7 +164,7 @@ function self:ServerUpdate()
         return
     end
 
-    print("This should run on the server")
+    print("timer should run on the server")
     print("This frame took " .. Time.deltaTime .. " seconds")
     currentTime = currentTime + Time.deltaTime
 
